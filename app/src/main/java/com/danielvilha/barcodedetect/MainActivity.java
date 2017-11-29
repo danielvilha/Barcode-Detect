@@ -1,6 +1,10 @@
 package com.danielvilha.barcodedetect;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +12,7 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.CameraSource;
@@ -19,6 +24,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String TAG = MainActivity.class.getSimpleName() + "TAG";
     static final Integer CAMERA = 0x5;
 
     SurfaceView cameraView;
@@ -57,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         // to handle the case where the user grants the permission. See the documentation
                         // for ActivityCompat#requestPermissions for more details.
                         ActivityCompat.requestPermissions(MainActivity.this, new String[] {android.Manifest.permission.CAMERA}, CAMERA);
-                        
+
                         return;
                     }
                     cameraSource.start(cameraView.getHolder());
@@ -94,5 +100,25 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    @SuppressWarnings("MissingPermission")
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        Log.i(TAG, "onRequestPermissionResult");
+        if (requestCode == CAMERA) {
+            if (grantResults.length <= 0) {
+                // If user interaction was interrupted, the permission request is cancelled and you
+                // receive empty arrays.
+                Log.i(TAG, "User interaction was cancelled.");
+            } else if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted.
+                try {
+                    cameraSource.start(cameraView.getHolder());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
