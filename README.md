@@ -1,13 +1,17 @@
 # Barcode Detect
 
-[![Language](https://img.shields.io/github/languages/count/badges/shields.svg?style=for-the-badge)](Java)
-[![Platform](https://img.shields.io/github/languages/count/badges/shields.svg?style=for-the-badge)](Android)
+* Language: Java
+* Platform: Android
+
+O último lançamento do SDK de Google Play Services inclui a mobile vision API, que entre outras coisas, torna muito fácil criar aplicativos capazes de detectar e ler códigos QR em tempo real. Neste aplicativo tem um exemplo prático de como usar essa API.
 
 ## Example
 
 ![](/Screenshots/Screenshot_1.png) ![](/Screenshots/Screenshot_2.png)
 
 ## Requirements
+
+Pode ser usado em qualquer vesão do Android, porém no projeto eu utilizei as versões:
 - Android 5.1+
 - AndroidStudio 3.0
 
@@ -47,8 +51,8 @@ dependencies {
 ```
 
 ## Documentation
-Full documentation is available on [Barcode API Overview](https://developers.google.com/vision/android/barcodes-overview).<br/>
-Google example [Barcode Detection with the Mobile Vision API](https://codelabs.developers.google.com/codelabs/bar-codes/#0).
+A documentação completa está disponível em [Barcode API Overview](https://developers.google.com/vision/android/barcodes-overview).<br/>
+Google exemplo [Barcode Detection with the Mobile Vision API](https://codelabs.developers.google.com/codelabs/bar-codes/#0).
 
 ## Author
 

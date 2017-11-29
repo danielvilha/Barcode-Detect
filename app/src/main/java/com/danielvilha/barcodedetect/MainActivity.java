@@ -36,10 +36,9 @@ public class MainActivity extends AppCompatActivity {
         cameraView = findViewById(R.id.camera_view);
         barcodeInfo = findViewById(R.id.code_info);
 
-        barcodeDetector =
-                new BarcodeDetector.Builder(this)
-                        .setBarcodeFormats(Barcode.CODABAR | Barcode.QR_CODE)
-                        .build();
+        barcodeDetector = new BarcodeDetector.Builder(this)
+                .setBarcodeFormats(Barcode.CODABAR | Barcode.QR_CODE)
+                .build();
 
         cameraSource = new CameraSource
                 .Builder(this, barcodeDetector)
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 final SparseArray<Barcode> barcodes = detections.getDetectedItems();
 
                 if (barcodes.size() != 0) {
-                    barcodeInfo.post(new Runnable() {    // Use the post method of the TextView
+                    barcodeInfo.post(new Runnable() {
                         public void run() {
                             barcodeInfo.setText(barcodes.valueAt(0).displayValue);
                         }
