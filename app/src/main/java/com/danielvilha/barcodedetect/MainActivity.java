@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         barcodeDetector =
                 new BarcodeDetector.Builder(this)
-                        .setBarcodeFormats(Barcode.QR_CODE)
+                        .setBarcodeFormats(Barcode.CODABAR | Barcode.QR_CODE)
                         .build();
 
         cameraSource = new CameraSource

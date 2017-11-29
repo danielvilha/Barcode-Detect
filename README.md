@@ -1,4 +1,7 @@
-# Barcode-Detect
+# Barcode Detect
+
+[![Language](https://img.shields.io/github/languages/count/badges/shields.svg?style=for-the-badge)](Java)
+[![Platform](https://img.shields.io/github/languages/count/badges/shields.svg?style=for-the-badge)](Android)
 
 ## Example
 
